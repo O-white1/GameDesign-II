@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://ucrghshcuiyn"]
+
+[ext_resource type="Script" path="res://Prog52a.gd" id="1_ggwoc"]
+
+[node name="Prog52a" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ggwoc")
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 256.0
+offset_top = 448.0
+offset_right = 896.0
+offset_bottom = 648.0
+text = "Calc
+"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 960.0
+offset_top = 456.0
+offset_right = 1152.0
+offset_bottom = 648.0
+text = "Exit
+"
+
+[node name="Length" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 512.0
+offset_bottom = 64.0
+
+[node name="Width" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 192.0
+
+[node name="PerimOut" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 320.0
+offset_right = 384.0
+offset_bottom = 384.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 64.0
+text = "Enter Length:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_top = 128.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "Enter Width:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_top = 256.0
+offset_right = 192.0
+offset_bottom = 320.0
+text = "Area:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_top = 320.0
+offset_right = 192.0
+offset_bottom = 384.0
+text = "Perimeter:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AreaOut" type="Label" parent="."]
+offset_left = 184.0
+offset_top = 256.0
+offset_right = 376.0
+offset_bottom = 320.0
+
+[node name="Clear" type="Button" parent="."]
+layout_mode = 0
+offset_top = 456.0
+offset_right = 192.0
+offset_bottom = 648.0
+text = "Clear
+"
+
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_clear_pressed"]

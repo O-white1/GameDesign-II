@@ -25,6 +25,7 @@ text = "Show
 "
 
 [node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 584.0
 offset_top = 512.0
 offset_right = 1152.0

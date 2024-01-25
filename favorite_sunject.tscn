@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://FavoriteSubject.gd" id="1_1w0sd"]
 
-[node name="FavoriteSunject" type="Control"]
+[node name="FavoriteSubject" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +20,7 @@ text = "Show
 "
 
 [node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 584.0
 offset_top = 512.0
 offset_right = 1152.0
