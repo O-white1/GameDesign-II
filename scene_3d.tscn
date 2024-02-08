@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dl057xk4tym44"]
+[gd_scene load_steps=13 format=3 uid="uid://dl057xk4tym44"]
 
 [ext_resource type="Script" path="res://Player3D.gd" id="1_bmyfy"]
 
@@ -34,6 +34,13 @@ height = 1.0
 radius = 0.208575
 height = 1.01726
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_vfty5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_73naj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gnbu"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="Scene3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -57,6 +64,7 @@ material = SubResource("StandardMaterial3D_vi2py")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00309277, -0.140145, 0.00999486)
+use_collision = true
 size = Vector3(7.98399, 1, 5.96681)
 material = SubResource("StandardMaterial3D_1st4j")
 
@@ -73,4 +81,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00258645, 1.26496, 0.007247
 shape = SubResource("CapsuleShape3D_aj55v")
 
 [node name="Camera3D" type="Camera3D" parent="Player3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52295, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.92085, 2.00795)
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.832319, -5.24567)
+use_collision = true
+mesh = SubResource("CylinderMesh_vfty5")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="CSGMesh3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7838, 3.25782, 0.553061)
+use_collision = true
+mesh = SubResource("CylinderMesh_vfty5")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="CSGMesh3D3/CSGMesh3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7838, 3.25782, 0.584009)
+use_collision = true
+mesh = SubResource("BoxMesh_73naj")
+material = SubResource("StandardMaterial3D_7gnbu")
