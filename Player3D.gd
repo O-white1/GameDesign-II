@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
 const WALK_SPEED = 5.0
-const RUN_SPEED = 9
+const RUN_SPEED = 40
 var SPEED = WALK_SPEED
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 20
 
 const BOB_FREQ = 2.4
 const BOB_AMP = 0.08
@@ -83,7 +83,7 @@ func _physics_process(delta):
 		t_bob += delta * velocity.length() * float(is_on_floor())
 		camera.transform.origin = headbob(t_bob)
 		
-		
+	move_and_slide()
 func headbob(time):
 	var pos = Vector3.ZERO
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
@@ -91,7 +91,6 @@ func headbob(time):
 	return pos
 		
 		
-	move_and_slide()
 	
 	
 func toggle_camera_parent():
