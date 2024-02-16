@@ -1,12 +1,12 @@
 extends CharacterBody3D
 
-const WALK_SPEED = 5.0
-const RUN_SPEED = 40
+const WALK_SPEED = 50.0
+const RUN_SPEED = 400
 var SPEED = WALK_SPEED
-const JUMP_VELOCITY = 20
+const JUMP_VELOCITY = 50
 
 const BOB_FREQ = 2.4
-const BOB_AMP = 0.08
+const BOB_AMP = 1
 var t_bob = 0
 
 
