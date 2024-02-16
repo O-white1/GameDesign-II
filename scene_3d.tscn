@@ -1,13 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://dl057xk4tym44"]
+[gd_scene load_steps=24 format=3 uid="uid://dl057xk4tym44"]
 
 [ext_resource type="Script" path="res://Player3D.gd" id="1_bmyfy"]
 [ext_resource type="PackedScene" uid="uid://coj2sm3eqogog" path="res://assets/Models/gobot.glb" id="2_ggbhd"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="3_lk2mo"]
 [ext_resource type="Resource" path="res://terrain/data.hterrain" id="4_4hg7l"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="5_igo1x"]
-[ext_resource type="Texture2D" uid="uid://7rp1lopcoo5n" path="res://terrain/Texture/Grass001_1K-JPG/Grass001_1K-JPG_Color.jpg" id="6_agutf"]
-[ext_resource type="Texture2D" uid="uid://8e08fheht6o" path="res://terrain/Texture/Grass001_1K-JPG/Grass001_1K-JPG_NormalGL.jpg" id="7_cjgex"]
-[ext_resource type="Texture2D" uid="uid://cyxj0b5ce3ui7" path="res://terrain/Texture/Rock030_1K-JPG/Rock030_1K-JPG_Color.jpg" id="7_cm5fp"]
+[ext_resource type="Texture2D" uid="uid://bssm1b3b3pv8t" path="res://scene_3d_slot0_albedo_bump.png" id="6_87dho"]
+[ext_resource type="Texture2D" uid="uid://j635fndjqq0w" path="res://scene_3d_slot1_albedo_bump.png" id="7_h7q11"]
+[ext_resource type="Texture2D" uid="uid://b3uqd4sp2fbnv" path="res://scene_3d_slot2_albedo_bump.png" id="8_xqrtv"]
+[ext_resource type="Texture2D" uid="uid://cyhci850swdpp" path="res://scene_3d_slot0_normal_roughness.png" id="9_3sahx"]
+[ext_resource type="Texture2D" uid="uid://cf4mbu634f0yk" path="res://scene_3d_slot1_normal_roughness.png" id="10_5dw2q"]
+[ext_resource type="Texture2D" uid="uid://mco26a34bg4j" path="res://scene_3d_slot2_normal_roughness.png" id="11_6ohqs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qemyp"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -52,7 +55,7 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="Resource" id="Resource_o5a2g"]
 script = ExtResource("5_igo1x")
 mode = 0
-textures = [[ExtResource("6_agutf"), ExtResource("7_cm5fp")], [ExtResource("7_cjgex"), null]]
+textures = [[ExtResource("6_87dho"), ExtResource("7_h7q11"), ExtResource("8_xqrtv")], [ExtResource("9_3sahx"), ExtResource("10_5dw2q"), ExtResource("11_6ohqs")]]
 
 [node name="Scene3D" type="Node3D"]
 
@@ -82,7 +85,7 @@ size = Vector3(7.98399, 1, 5.96681)
 material = SubResource("StandardMaterial3D_1st4j")
 
 [node name="Player3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(-10, 0, -1.50996e-06, 0, 10, 0, 1.50996e-06, 0, -10, 259.354, 322.001, 254.86)
+transform = Transform3D(-12, 0, -1.81195e-06, 0, 12, 0, 1.81195e-06, 0, -12, 0, 255.931, 0)
 script = ExtResource("1_bmyfy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player3D"]
@@ -131,7 +134,7 @@ size = Vector3(7.98399, 1, 5.96681)
 material = SubResource("StandardMaterial3D_1st4j")
 
 [node name="HTerrain" type="Node3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 script = ExtResource("3_lk2mo")
 centered = true
 _terrain_data = ExtResource("4_4hg7l")
