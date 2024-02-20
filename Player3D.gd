@@ -1,13 +1,18 @@
 extends CharacterBody3D
 
 const WALK_SPEED = 50.0
-const RUN_SPEED = 400
+const RUN_SPEED = 100
 var SPEED = WALK_SPEED
-const JUMP_VELOCITY = 50
+const JUMP_VELOCITY = 25
 
 const BOB_FREQ = 2.4
 const BOB_AMP = 1
 var t_bob = 0
+
+var MAX_HP = 50
+var HP = MAX_HP
+var dmg_lock = 0.0
+var inertia = Vector3.ZERO
 
 
 
@@ -83,7 +88,29 @@ func _physics_process(delta):
 		t_bob += delta * velocity.length() * float(is_on_floor())
 		camera.transform.origin = headbob(t_bob)
 		
+		
+		
+	
+	
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		if $Feet.overlaps_area(enemy.dmg_area):
+			enemy.queue_free()
+	
+	dmg_lock = max(dmg_lock - delta, 0.0)
+	velocity += inertia
+	inertia = inertia.move_toward(Vector3(), delta*1000.0)
 	move_and_slide()
+	
+func take_damage(dmg):
+	if dmg_lock == 0.0:
+		dmg_lock = 0.5
+		HP -= dmg
+		#todo: dmg shader
+	if HP <= 0:
+		await get_tree().create_timer(0.25).timout
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		OS.alert("You Died!")
+		get_tree().reload_current_scene()
 func headbob(time):
 	var pos = Vector3.ZERO
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
