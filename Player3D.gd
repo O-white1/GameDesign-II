@@ -14,6 +14,9 @@ var HP = MAX_HP
 var dmg_lock = 0.0
 var inertia = Vector3.ZERO
 
+var dmg_shader = preload("res://assets/Shaders/Take_Damage.tres")
+@onready var HUD = get_tree().get_first_node_in_group("HUD")
+
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -99,13 +102,27 @@ func _physics_process(delta):
 	dmg_lock = max(dmg_lock - delta, 0.0)
 	velocity += inertia
 	inertia = inertia.move_toward(Vector3(), delta*1000.0)
+	
+	if dmg_lock == 0:
+		HUD.dmg_overlay.material = null
+	HUD.healthbar.max_value = MAX_HP
+	HUD.healthbar.value = int(HP)
+	
+	
+	
 	move_and_slide()
 	
 func take_damage(dmg):
 	if dmg_lock == 0.0:
 		dmg_lock = 0.5
 		HP -= dmg
-		#todo: dmg shader
+		var dmg_intensity = clamp(1.0 - ((HP + 0.01)/MAX_HP), 0.1, 0.8)
+		HUD.dmg_overlay.material = dmg_shader.duplicate()
+		HUD.dmg_overlay.material.set_shader_parameter("intensity", dmg_intensity)
+		
+		
+		
+		
 	if HP <= 0:
 		await get_tree().create_timer(0.25).timout
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
