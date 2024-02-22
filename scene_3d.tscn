@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dl057xk4tym44"]
+[gd_scene load_steps=25 format=3 uid="uid://dl057xk4tym44"]
 
 [ext_resource type="PackedScene" uid="uid://ygjfcd3a0cym" path="res://player_3d.tscn" id="1_7slhi"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="3_lk2mo"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://mco26a34bg4j" path="res://scene_3d_slot2_normal_roughness.png" id="11_6ohqs"]
 [ext_resource type="PackedScene" uid="uid://y7oy5lo1r6xd" path="res://enemy_3d.tscn" id="11_sjw8k"]
 [ext_resource type="PackedScene" uid="uid://buvfvii4uxosx" path="res://player_hud_3d.tscn" id="12_80gcw"]
+[ext_resource type="PackedScene" uid="uid://dlsxb0x07kr7r" path="res://goal.tscn" id="13_vcs88"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qemyp"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -133,3 +134,6 @@ navigation_mesh = SubResource("NavigationMesh_vmik8")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -301.844, 78.9113, 1416.86)
 
 [node name="PlayerHud3D" parent="." instance=ExtResource("12_80gcw")]
+
+[node name="Goal" parent="." instance=ExtResource("13_vcs88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 967.827, -1128.31, 1002.25)

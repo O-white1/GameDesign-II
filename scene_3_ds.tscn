@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4ipmvb2frxxy"]
+
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_8jasd"]
+[ext_resource type="Resource" path="res://terrain/Map2/data.hterrain" id="2_1yuw7"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_8g3e7"]
+[ext_resource type="PackedScene" uid="uid://ygjfcd3a0cym" path="res://player_3d.tscn" id="4_k4lxw"]
+[ext_resource type="PackedScene" uid="uid://buvfvii4uxosx" path="res://player_hud_3d.tscn" id="5_3jqjw"]
+[ext_resource type="PackedScene" uid="uid://y7oy5lo1r6xd" path="res://enemy_3d.tscn" id="6_xw8ji"]
+
+[sub_resource type="Resource" id="Resource_42sn7"]
+script = ExtResource("3_8g3e7")
+mode = 0
+textures = [[], []]
+
+[node name="scene_3_ds" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.603922, 1, 0.643137, 1)
+shadow_enabled = true
+
+[node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+script = ExtResource("1_8jasd")
+centered = true
+_terrain_data = ExtResource("2_1yuw7")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_42sn7")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+
+[node name="Player3D" parent="." instance=ExtResource("4_k4lxw")]
+transform = Transform3D(-12, 0, -1.81195e-06, 0, 12, 0, 1.81195e-06, 0, -12, 70.2572, 159.644, -16.6877)
+
+[node name="PlayerHud3D" parent="." instance=ExtResource("5_3jqjw")]
+
+[node name="Enemy3D" parent="." instance=ExtResource("6_xw8ji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.085, 186.982, -19.2136)

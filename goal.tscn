@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlsxb0x07kr7r"]
+
+[ext_resource type="Script" path="res://Goal.gd" id="1_d64mh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_72q03"]
+height = 0.25
+radius = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1tj1l"]
+top_radius = 4.0
+bottom_radius = 4.0
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyu58"]
+transparency = 1
+albedo_color = Color(0.929412, 0.160784, 0.372549, 0.576471)
+
+[node name="Goal" type="Area3D"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+script = ExtResource("1_d64mh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.04892, 0)
+shape = SubResource("CylinderShape3D_72q03")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02262, 0)
+mesh = SubResource("CylinderMesh_1tj1l")
+surface_material_override/0 = SubResource("StandardMaterial3D_tyu58")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
