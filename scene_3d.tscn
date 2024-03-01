@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dl057xk4tym44"]
+[gd_scene load_steps=29 format=3 uid="uid://dl057xk4tym44"]
 
 [ext_resource type="PackedScene" uid="uid://ygjfcd3a0cym" path="res://player_3d.tscn" id="1_7slhi"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="3_lk2mo"]
@@ -55,6 +55,16 @@ textures = [[ExtResource("6_87dho"), ExtResource("7_h7q11"), ExtResource("8_ncx8
 agent_height = 2.0
 agent_max_climb = 2.0
 agent_max_slope = 60.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xda22"]
+radius = 100.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nhl86"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e52y3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xma7w"]
+radius = 100.0
 
 [node name="Scene3D" type="Node3D"]
 
@@ -137,3 +147,44 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -301.844, 78.9113, 1416.86
 
 [node name="Goal" parent="." instance=ExtResource("13_vcs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 967.827, -1128.31, 1002.25)
+
+[node name="Kickball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 169.049, 469.368)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Kickball"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -245.125)
+use_collision = true
+radius = 94.8962
+radial_segments = 100
+rings = 100
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kickball"]
+shape = SubResource("SphereShape3D_xda22")
+
+[node name="pushable" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 168.133, 340.553)
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_nhl86")
+lock_rotation = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pushable"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pushable"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+mesh = SubResource("BoxMesh_e52y3")
+
+[node name="SoftBody3D" type="SoftBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 402.282, 470.342)
+mesh = SubResource("SphereMesh_xma7w")
+linear_stiffness = 0.0
+pinned_points = [111]
+attachments/0/point_index = 111
+attachments/0/spatial_attachment_path = NodePath("")
+attachments/0/offset = Vector3(0, 0, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="SoftBody3D"]
+use_collision = true
+radius = 100.0
+radial_segments = 100
+rings = 100

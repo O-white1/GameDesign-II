@@ -3,7 +3,7 @@ extends CharacterBody3D
 const WALK_SPEED = 50.0
 const RUN_SPEED = 100
 var SPEED = WALK_SPEED
-const JUMP_VELOCITY = 200
+const JUMP_VELOCITY = -400
 
 const BOB_FREQ = 2.4
 const BOB_AMP = 1
@@ -13,6 +13,8 @@ var MAX_HP = 50
 var HP = MAX_HP
 var dmg_lock = 0.0
 var inertia = Vector3.ZERO
+
+var PUSH_FORCE = 25
 
 var dmg_shader = preload("res://assets/Shaders/Take_Damage.tres")
 @onready var HUD = get_tree().get_first_node_in_group("HUD")
@@ -111,6 +113,17 @@ func _physics_process(delta):
 	
 	
 	move_and_slide()
+	
+	for i in range(get_slide_collision_count()):
+		var c = get_slide_collision(i)
+		var col = c.get_collider()
+		if col is RigidBody3D  and is_on_floor():
+			col.apply_central_force(-c.get_normal() * PUSH_FORCE)
+	
+	if self.global_position.y <= -50:
+		take_damage(MAX_HP)
+	
+	
 	
 func take_damage(dmg):
 	if dmg_lock == 0.0:
