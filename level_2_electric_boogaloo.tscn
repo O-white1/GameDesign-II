@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dgdgxhq5irg1n"]
+
+[node name="Level2_ElectricBoogaloo" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+custom_aabb = AABB(12, 0, 0, 0, 0, 0)
+ignore_occlusion_culling = true
+snap = 1e-06
