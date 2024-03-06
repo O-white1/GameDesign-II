@@ -1,9 +1,27 @@
-[gd_scene format=3 uid="uid://dgdgxhq5irg1n"]
+[gd_scene load_steps=5 format=3 uid="uid://dgdgxhq5irg1n"]
+
+[ext_resource type="PackedScene" uid="uid://ygjfcd3a0cym" path="res://player_3d.tscn" id="2_y7rr8"]
+[ext_resource type="PackedScene" uid="uid://buvfvii4uxosx" path="res://player_hud_3d.tscn" id="3_upda6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xlv3"]
+albedo_color = Color(0.501961, 0.0666667, 0.133333, 0.282353)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o1jkr"]
+material = SubResource("StandardMaterial3D_7xlv3")
+size = Vector3(500, 1, 500)
 
 [node name="Level2_ElectricBoogaloo" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
-custom_aabb = AABB(12, 0, 0, 0, 0, 0)
-ignore_occlusion_culling = true
-snap = 1e-06
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.5, -0.00906883, 0.865978, 0, 0.999945, 0.0104718, -0.866025, 0.00523589, -0.499973, 0, 0, 0)
+light_energy = 64.0
+shadow_enabled = true
+
+[node name="Player3D" parent="." instance=ExtResource("2_y7rr8")]
+transform = Transform3D(-12, 0, -1.81195e-06, 0, 12, 0, 1.81195e-06, 0, -12, 102.128, 8.45081, -39.4794)
+
+[node name="PlayerHud3D" parent="." instance=ExtResource("3_upda6")]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+use_collision = true
+mesh = SubResource("BoxMesh_o1jkr")
