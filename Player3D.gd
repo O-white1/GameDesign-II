@@ -135,9 +135,8 @@ func take_damage(dmg):
 		
 		
 		
-		
 	if HP <= 0:
-		await get_tree().create_timer(0.25).timout
+		await get_tree().create_timer(0.25).timeout 
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		OS.alert("You Died!")
 		get_tree().reload_current_scene()
