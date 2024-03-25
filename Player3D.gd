@@ -107,8 +107,8 @@ func _physics_process(delta):
 	
 	if dmg_lock == 0:
 		HUD.dmg_overlay.material = null
-	HUD.healthbar.max_value = MAX_HP
-	HUD.healthbar.value = int(HP)
+		HUD.healthbar.max_value = MAX_HP
+		HUD.healthbar.value = int(HP)
 	
 	
 	

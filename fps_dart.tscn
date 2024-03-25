@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqjjs41qcpjev"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j2g1n"]
+height = 0.095
+radius = 0.02
+
+[node name="fps_dart" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.977309, 0.211819, 0, -0.211819, 0.977309, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0123917, 0.999923, 0, -0.999923, 0.0123917, 0, 0, 0)
+radius = 0.02
+height = 0.095
+sides = 16
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -0.00753973, -0.999972, 0, 0.999972, -0.00753973, 0, 0, 0)
+shape = SubResource("CylinderShape3D_j2g1n")
