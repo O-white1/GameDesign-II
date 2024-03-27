@@ -6,21 +6,8 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var head = $Head
+@onready var head = $DamageArea
 
-
-var blaster
-var muzzle
-var dart_scene = preload("res://fps_dart.tscn")
-var spray_lock = 0.0
-var NORMAL_SPRAY_AMOUNT = 0.03
-var CROUNCH_SPRAY_AMOUNT = 0.01
-var SPRAY_AMOUNT = NORMAL_SPRAY_AMOUNT
-var ATTACK = 5.0
-var CLIP_SIZE = 30
-var AMMO = CLIP_SIZE
-var TOTAL_AMMO = 150
-var is_reloading = false
 
 
 func _physics_process(delta):
@@ -29,8 +16,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

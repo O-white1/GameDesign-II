@@ -35,7 +35,7 @@ func do_fire(camera, muzzle, spray_amount, attack=ATTACK):
 	var cam_forward = camera.global_transform.basis.z.normalized()
 	var rnd_x = randf_range(-1, 1) * spray_amount
 	var rnd_y = randf_range(-1, 1) * spray_amount
-	var sprawy_dir = cam_forward + camera.global_transform.basis.x * rnd_x + camera.global_trasform * rnd_y
+	var sprawy_dir = cam_forward + camera.global_transform.basis.x * rnd_x + camera.global_transform * rnd_y
 	self._global_transform.origin = muzzle.global_transform.origin
 	self.linear_velocity = -sprawy_dir.normalized() * SPEED
 	
