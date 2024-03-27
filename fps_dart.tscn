@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqjjs41qcpjev"]
+[gd_scene load_steps=3 format=3 uid="uid://cqjjs41qcpjev"]
+
+[ext_resource type="Script" path="res://fps_dart.gd" id="1_hu2v6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j2g1n"]
 height = 0.095
 radius = 0.02
 
 [node name="fps_dart" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.977309, 0.211819, 0, -0.211819, 0.977309, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.992536, 0.121955, 0, -0.121955, 0.992536, 0, 0, 0)
+script = ExtResource("1_hu2v6")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0123917, 0.999923, 0, -0.999923, 0.0123917, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.00324612, 0.999995, 0, -0.999995, -0.00324612, 0, 0, 0)
 radius = 0.02
 height = 0.095
 sides = 16
@@ -21,3 +24,5 @@ wait_time = 3.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, -0.00753973, -0.999972, 0, 0.999972, -0.00753973, 0, 0, 0)
 shape = SubResource("CylinderShape3D_j2g1n")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

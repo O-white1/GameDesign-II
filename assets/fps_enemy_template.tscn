@@ -1,4 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxlven8a1hlhk"]
+[gd_scene load_steps=10 format=3 uid="uid://cxlven8a1hlhk"]
+
+[ext_resource type="Script" path="res://assets/fps_enemy_template.gd" id="1_duixg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g43l7"]
 
@@ -25,6 +27,7 @@ metallic = 1.0
 metallic_specular = 1.0
 
 [node name="fps_enemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_duixg")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 

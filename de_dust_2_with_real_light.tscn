@@ -37,9 +37,6 @@ data = PackedVector3Array(1600, 1728, 320, 1600, 1664, 96, 1600, 1728, 96, 1600,
 
 [node name="de_dust_2_with_real_light" instance=ExtResource("1_wr7ij")]
 
-[node name="part11_part11_0" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part11" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part11/part11_part11_0" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part11/part11_part11_0/StaticBody3D" index="0"]
@@ -55,32 +52,20 @@ shape = SubResource("ConcavePolygonShape3D_rygot")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part2/part2_part2_0/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_atw7s")
 
-[node name="part3_part3_0" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part3/part3_part3_0" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part3/part3_part3_0/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_whpw3")
-
-[node name="part4_part4_0" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part4" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part4/part4_part4_0" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part4/part4_part4_0/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_03ooq")
 
-[node name="part5_part5_0" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part5" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part5/part5_part5_0" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part5/part5_part5_0/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_bei31")
-
-[node name="part6_part6_0" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part6" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/eaf6f3c9fcd946a5959a413033a2ae7b_fbx/RootNode/part6/part6_part6_0" index="0"]
 
