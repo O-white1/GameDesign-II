@@ -10,6 +10,7 @@ var MAX_HEALTH = 100
 var HEALTH = MAX_HEALTH
 var damage_lock = 0.0  # Prevent infinite damage
 var inertia = Vector3()
+var TOTAL_AMMO = 100
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.5
@@ -39,8 +40,15 @@ var ATTACK = 5.0
 
 var CLIP_SIZE = 30
 var AMMO = CLIP_SIZE
-var TOTAL_AMMO = 150
 var is_reloading = false
+
+var NORMAL_HEIGHT = 2.0
+var CROUCH_HEIGHT = 1.25
+var NORMAL_COLLISION_RAD = 0.5
+var CROUCH_COLLISION_RAD = 0.8
+var NORMAL_HEAD = 0.8 
+var CROUCH_HEAD = 0.4
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -85,7 +93,22 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("fire"): do_fire()
 	spray_lock = max(spray_lock - delta, 0.0)
+	
+	if len(get_tree().get_nodes_in_group("Enemy")) <= 0:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		OS.alert("You win")
+	
+	if Input.is_action_just_pressed("crouch"):
+		$CollisionShape3D.shape.height = CROUCH_HEIGHT + 0.05
+		$CollisionShape3D.shape.radius = CROUCH_COLLISION_RAD
+		$MeshInstance3D.scale.y = CROUCH_HEIGHT / NORMAL_HEIGHT
+		$Head.position.y = lerp($Head.position.y, CROUCH_HEAD, delta*5.0)
+		SPRAY_AMOUNT = CROUCH_SPRAY_AMOUNT
+	
+	
 	move_and_slide()
+	#TODO DIESOFCRINGE
+	
 	
 	if int(HEALTH) <= 0:
 		HEALTH = 0
@@ -126,7 +149,19 @@ func do_fire():
 			dart.do_fire(camera, muzzle, spray, ATTACK)
 			AMMO -= 1
 			spray_lock = FIRING_DELAY
-			
+	if Input.is_action_just_pressed("reload") or (Input.is_action_just_pressed("fire") and AMMO == 0):
+			if TOTAL_AMMO > 0 and not is_reloading and AMMO != CLIP_SIZE:
+				is_reloading = true
+				await get_tree().create_timer(2).timeout
+				var ammo_needed = CLIP_SIZE - AMMO
+				var new_ammo = min(ammo_needed, TOTAL_AMMO)
+				AMMO += new_ammo
+				TOTAL_AMMO -= new_ammo
+				is_reloading = false
+	$HUD/Label/lblHealth.text = str(int(HEALTH)) + "/" + str(MAX_HEALTH)
+	$HUD/Label2/lblAmmo.text = str(int(AMMO)) + "/" + str(TOTAL_AMMO)
+	if damage_lock == 0: $HUD/overlay.material = null
+				
 
 
 func headbob(time):

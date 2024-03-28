@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ceufle1g4wsg4"]
+[gd_scene load_steps=7 format=3 uid="uid://ceufle1g4wsg4"]
 
-[ext_resource type="PackedScene" uid="uid://dwr0nmd8yw1ig" path="res://assets/Maps/de_dust_2_with_real_light.glb" id="1_h0t7t"]
+[ext_resource type="PackedScene" uid="uid://2su3oqsqb1sa" path="res://de_dust_2_with_real_light.tscn" id="2_6ooay"]
 [ext_resource type="PackedScene" uid="uid://bu70mml3t5wjf" path="res://assets/fps_player_template.tscn" id="2_na4ga"]
+[ext_resource type="PackedScene" uid="uid://cxlven8a1hlhk" path="res://assets/fps_enemy_template.tscn" id="3_ulxih"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pfvkg"]
 sky_top_color = Color(0.592157, 0, 0.109804, 1)
@@ -27,8 +28,11 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jvcr1")
 
-[node name="de_dust_2_with_real_light" parent="." instance=ExtResource("1_h0t7t")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -33.7246, 0, 26.5347)
-
 [node name="fps_player" parent="." instance=ExtResource("2_na4ga")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8444, 3.78608, 28.6842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8531, 6.01957, 26.4355)
+
+[node name="de_dust_2_with_real_light" parent="." instance=ExtResource("2_6ooay")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 1.8739)
+
+[node name="fps_enemy" parent="." instance=ExtResource("3_ulxih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4781, 6.03315, 13.8637)
