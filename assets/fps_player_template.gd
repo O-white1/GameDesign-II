@@ -101,9 +101,18 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("crouch"):
 		$CollisionShape3D.shape.height = CROUCH_HEIGHT + 0.05
 		$CollisionShape3D.shape.radius = CROUCH_COLLISION_RAD
-		$MeshInstance3D.scale.y = CROUCH_HEIGHT / NORMAL_HEIGHT
+		$MeshInstance3D.scale.y = CROUCH_HEIGHT / NORMAL_HEIGHT # 0.65
 		$Head.position.y = lerp($Head.position.y, CROUCH_HEAD, delta*5.0)
 		SPRAY_AMOUNT = CROUCH_SPRAY_AMOUNT
+		
+		
+	if Input.is_action_just_released("crouch:"):
+		$CollisionShape3D.shape.height = NORMAL_HEIGHT
+		$CollisionShape3D.shape.radius = NORMAL_COLLISION_RAD
+		$MeshInstance3D.scale.y = 1
+		$Head.position.y = lerp($Head.position.y, NORMAL_HEAD, delta*5.0)
+		SPRAY_AMOUNT = NORMAL_SPRAY_AMOUNT
+		
 	
 	
 	move_and_slide()

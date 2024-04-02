@@ -36,3 +36,6 @@ transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 1.8739)
 
 [node name="fps_enemy" parent="." instance=ExtResource("3_ulxih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4781, 6.03315, 13.8637)
+
+[node name="fps_enemy2" parent="." instance=ExtResource("3_ulxih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0163, 7.33441, 18.9556)
