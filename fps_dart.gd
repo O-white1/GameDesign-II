@@ -7,9 +7,14 @@ var DROP = 0.001
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * DROP
 var spawn_origin: Vector3
 
+@onready var audioplayer = $AudioStreamPlayer3D
+# var firesound = prelad # ("fire.wav") # download the files from calssroom
+
 func _ready():
 	$Timer.start()
 	spawn_origin = self.global_position
+	# audio_player.play()
+	# audio_player.stream = fire_sound
 	
 
 func _on_timer_timeout():
