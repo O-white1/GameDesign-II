@@ -50,9 +50,9 @@ var NORMAL_HEAD = 0.8
 var CROUCH_HEAD = 0.4
 
 @onready var audio_player = $AudioStreamPlayer3D
-var reaload_sound = preload(recharce)
-var hit sound = preload("hit")
-var dink_sound = preload(hithead)
+# var reaload_sound = preload(recharce)
+# var hit sound = preload("hit")
+# var dink_sound = preload(hithead)
 
 
 func _physics_process(delta):
@@ -154,11 +154,12 @@ func take_damage(dmg, override=false, headshot=false, _spawn_origin=null):
 		$HUD/overlay.material = damage_shader.duplicate()
 		$HUD/overlay.material.set_shader_parameter("intensity", dmg_intensity)
 		#DAMAGE NOISES
+		"""
 		if audio_player.playing:
 			await audio_player.finished
 		audio_player.stream = dink_sound if headshot else hit_sound
 		audio_player.play()
-		
+		"""
 
 func do_fire():
 	if spray_lock == 0 and AMMO > 0:
