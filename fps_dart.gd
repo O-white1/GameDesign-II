@@ -15,7 +15,7 @@ func _ready():
 	spawn_origin = self.global_position
 	# audio_player.play()
 	# audio_player.stream = fire_sound
-	
+
 
 func _on_timer_timeout():
 	queue_free()
@@ -31,7 +31,8 @@ func do_damage(group):
 			if $Area3D.overlaps_area(entity.head):
 				entity.take_damage(ATTACK*2.5 + crit, true, true, spawn_origin)
 			if $Area3D.overlaps_body(entity):
-				entity.take_damage(ATTACK + crit, true, false, spawn_origin)
+				# entity.take_damage(ATTACK + crit, true, false, spawn_origin)
+				pass
 				
 				
 func do_fire(camera, muzzle, spray_amount, attack=ATTACK):
@@ -40,7 +41,9 @@ func do_fire(camera, muzzle, spray_amount, attack=ATTACK):
 	var cam_forward = camera.global_transform.basis.z.normalized()
 	var rnd_x = randf_range(-1, 1) * spray_amount
 	var rnd_y = randf_range(-1, 1) * spray_amount
-	# var sprawy_dir = cam_forward + camera.global_transform.basis.x * rnd_x + camera.global_transform * rnd_y
+	"""
+	var spray_dir = cam_forward + camera.global_transform.basis.x * rnd_x + camera.global_transform * rnd_y
 	self.global_transform.origin = muzzle.global_transform.origin
-	# self.linear_velocity = -sprawy_dir.normalized() * SPEED
+	self.linear_velocity = -spray_dir.normalized() * SPEED
+	"""
 	

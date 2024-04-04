@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceufle1g4wsg4"]
+[gd_scene load_steps=9 format=3 uid="uid://ceufle1g4wsg4"]
 
+[ext_resource type="Script" path="res://fps_world.gd" id="1_6b300"]
 [ext_resource type="PackedScene" uid="uid://2su3oqsqb1sa" path="res://de_dust_2_with_real_light.tscn" id="2_6ooay"]
 [ext_resource type="PackedScene" uid="uid://bu70mml3t5wjf" path="res://assets/fps_player_template.tscn" id="2_na4ga"]
 [ext_resource type="PackedScene" uid="uid://cxlven8a1hlhk" path="res://assets/fps_enemy_template.tscn" id="3_ulxih"]
@@ -18,7 +19,11 @@ background_mode = 2
 sky = SubResource("Sky_17f1v")
 tonemap_mode = 2
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_qcu50"]
+margin = 0.5
+
 [node name="fps_world" type="Node3D"]
+script = ExtResource("1_6b300")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.0191939, 0.499632, 0, 0.999263, 0.0383878, -0.5, 0.0332448, -0.865387, 0, 0, 0)
@@ -39,3 +44,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.4781, 6.03315, 13.8637)
 
 [node name="fps_enemy2" parent="." instance=ExtResource("3_ulxih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0163, 7.33441, 18.9556)
+
+[node name="lvlBall" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.4558, 2.55995, -16.3303)
+radial_segments = 24
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lvlBall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.12334)
+shape = SubResource("SphereShape3D_qcu50")

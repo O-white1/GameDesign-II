@@ -31,6 +31,8 @@ var muzzle
 var old_blaster_y
 var dart_scene = preload("res://fps_dart.tscn")
 
+var jumps = 0
+
 var spray_lock = 0.0  # Prevent infinite spray
 var NORMAL_SPRAY_AMOUNT = 0.03
 var CROUCH_SPRAY_AMOUNT = 0.01
@@ -54,6 +56,37 @@ var CROUCH_HEAD = 0.4
 # var hit sound = preload("hit")
 # var dink_sound = preload(hithead)
 
+var unaim_pos = Vector3(0.219, -0.27, -0.421)
+var aim_pos = Vector3(0, 0.14, -0.511)
+var unaim_quat = euler_degrees_to_quat(Vector3(28.1, 31.7, 0))
+var aim_quat = euler_degrees_to_quat(Vector3(11.6, 0, 0))
+var target_pos = unaim_pos
+var target_quat = unaim_quat
+
+func degrees_to_radians(degrees: Vector3) -> Vector3:
+	return Vector3(
+		deg_to_rad(degrees.x),
+		deg_to_rad(degrees.y),
+		deg_to_rad(degrees.z)
+	)
+
+
+func radians_to_degrees(radians: Vector3) -> Vector3:
+	return Vector3(
+		rad_to_deg(radians.x),
+		rad_to_deg(radians.y),
+		rad_to_deg(radians.z)
+	)
+
+
+func euler_degrees_to_quat(euler_degrees: Vector3) -> Quaternion:
+	return Quaternion.from_euler(degrees_to_radians(euler_degrees))
+
+
+
+
+
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -61,8 +94,8 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = JUMP_VELOCITY if not Input.is_action_just_pressed("crouch") else JUMP_VELOCITY * 1.05
 		
 	if Input.is_action_just_pressed("walk") or Input.is_action_just_pressed("crouch"): SPEED = WALK_SPEED
@@ -112,7 +145,19 @@ func _physics_process(delta):
 		SPRAY_AMOUNT = CROUCH_SPRAY_AMOUNT
 		
 		
-	if Input.is_action_just_released("crouch:"):
+	if Input.is_action_pressed("aim_sight"):
+		target_pos = aim_pos
+		target_quat = aim_quat
+		$Head/Camera3D.fov = lerp(45, 75, delta*10.0)
+	elif Input.is_action_just_released("aim_sight"):
+		target_pos = unaim_pos
+		target_quat = unaim_quat
+		$Head/Camera3D.fov = lerp(75, 45, delta*10.0)
+	blaster.position = blaster.position.lerp(target_pos, delta * 10.0)
+	var cur_quat = Quaternion.from_euler(degrees_to_radians(blaster.rotation_degrees))
+	blaster.rotation_degrees = radians_to_degrees(cur_quat.slerp(target_quat, delta * 10.0).get_euler())
+
+	if Input.is_action_just_released("crouch"):
 		$CollisionShape3D.shape.height = NORMAL_HEIGHT
 		$CollisionShape3D.shape.radius = NORMAL_COLLISION_RAD
 		$MeshInstance3D.scale.y = 1

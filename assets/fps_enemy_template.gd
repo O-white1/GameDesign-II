@@ -12,7 +12,8 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $DamageArea
 
-
+func take_damage():
+	pass
 
 func is_player_in_sight(player):
 	var from_pose = self.global_transform.origin
