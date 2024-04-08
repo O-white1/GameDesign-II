@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b06e2gg0qabo8"]
+
+[ext_resource type="PackedScene" uid="uid://cqbc15dvuabk0" path="res://rc_player.tscn" id="1_7rcht"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rab4h"]
+sky_top_color = Color(0.592157, 0, 0.109804, 1)
+sky_horizon_color = Color(0.648039, 0.5, 0.527451, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.648039, 0.5, 0.527451, 1)
+
+[sub_resource type="Sky" id="Sky_0vji3"]
+sky_material = SubResource("ProceduralSkyMaterial_rab4h")
+
+[sub_resource type="Environment" id="Environment_bjyyv"]
+background_mode = 2
+sky = SubResource("Sky_0vji3")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7lclj"]
+
+[node name="rc_world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bjyyv")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.601642, -1.56418, 0.124391)
+use_collision = true
+mesh = SubResource("PlaneMesh_7lclj")
+
+[node name="race" parent="." instance=ExtResource("1_7rcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659342, 0, 1.02952)
