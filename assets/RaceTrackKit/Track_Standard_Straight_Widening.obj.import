@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bvxrxl851uy3j"
+path="res://.godot/imported/Track_Standard_Straight_Widening.obj-3b425ab080ae4993152d1498847c5b0e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Track_Standard_Straight_Widening.obj-3b425ab080ae4993152d1498847c5b0e.mesh"]
+
+source_file="res://assets/RaceTrackKit/Track_Standard_Straight_Widening.obj"
+dest_files=["res://.godot/imported/Track_Standard_Straight_Widening.obj-3b425ab080ae4993152d1498847c5b0e.mesh", "res://.godot/imported/Track_Standard_Straight_Widening.obj-3b425ab080ae4993152d1498847c5b0e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://drax3d1fqd300"
+path="res://.godot/imported/Prop_Track_Arch_1x4.obj-cab33eca3953728b2de252960e46e7ce.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Track_Arch_1x4.obj-cab33eca3953728b2de252960e46e7ce.mesh"]
+
+source_file="res://assets/RaceTrackKit/Prop_Track_Arch_1x4.obj"
+dest_files=["res://.godot/imported/Prop_Track_Arch_1x4.obj-cab33eca3953728b2de252960e46e7ce.mesh", "res://.godot/imported/Prop_Track_Arch_1x4.obj-cab33eca3953728b2de252960e46e7ce.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cr8ddclji0iff"
+path="res://.godot/imported/Prop_Decorative_Hay_Pile.obj-0be46d7288cb9a0bd355ef90c312bd2e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Decorative_Hay_Pile.obj-0be46d7288cb9a0bd355ef90c312bd2e.mesh"]
+
+source_file="res://assets/RaceTrackKit/Prop_Decorative_Hay_Pile.obj"
+dest_files=["res://.godot/imported/Prop_Decorative_Hay_Pile.obj-0be46d7288cb9a0bd355ef90c312bd2e.mesh", "res://.godot/imported/Prop_Decorative_Hay_Pile.obj-0be46d7288cb9a0bd355ef90c312bd2e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

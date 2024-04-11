@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b3uv1qrccsrpb"
+path="res://.godot/imported/Prop_Decorative_Hay_Pile_Pitchfork.obj-c97cbb11628c85f0c93ed3bc971761bc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Decorative_Hay_Pile_Pitchfork.obj-c97cbb11628c85f0c93ed3bc971761bc.mesh"]
+
+source_file="res://assets/RaceTrackKit/Prop_Decorative_Hay_Pile_Pitchfork.obj"
+dest_files=["res://.godot/imported/Prop_Decorative_Hay_Pile_Pitchfork.obj-c97cbb11628c85f0c93ed3bc971761bc.mesh", "res://.godot/imported/Prop_Decorative_Hay_Pile_Pitchfork.obj-c97cbb11628c85f0c93ed3bc971761bc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

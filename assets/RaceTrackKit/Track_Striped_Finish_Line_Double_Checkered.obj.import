@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cbfslcj7utd4q"
+path="res://.godot/imported/Track_Striped_Finish_Line_Double_Checkered.obj-193f965aa00264802f3d21567eb5fcbe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Track_Striped_Finish_Line_Double_Checkered.obj-193f965aa00264802f3d21567eb5fcbe.mesh"]
+
+source_file="res://assets/RaceTrackKit/Track_Striped_Finish_Line_Double_Checkered.obj"
+dest_files=["res://.godot/imported/Track_Striped_Finish_Line_Double_Checkered.obj-193f965aa00264802f3d21567eb5fcbe.mesh", "res://.godot/imported/Track_Striped_Finish_Line_Double_Checkered.obj-193f965aa00264802f3d21567eb5fcbe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

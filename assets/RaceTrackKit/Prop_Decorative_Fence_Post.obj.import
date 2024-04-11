@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fxy4jdbybu4x"
+path="res://.godot/imported/Prop_Decorative_Fence_Post.obj-a46c5befa4d914702508b51fc21f9318.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Decorative_Fence_Post.obj-a46c5befa4d914702508b51fc21f9318.mesh"]
+
+source_file="res://assets/RaceTrackKit/Prop_Decorative_Fence_Post.obj"
+dest_files=["res://.godot/imported/Prop_Decorative_Fence_Post.obj-a46c5befa4d914702508b51fc21f9318.mesh", "res://.godot/imported/Prop_Decorative_Fence_Post.obj-a46c5befa4d914702508b51fc21f9318.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ckqb2uuwkw18b"
+path="res://.godot/imported/Track_Striped_Esse_Double.obj-fc7bb7197c307d1243453401d4ff40e4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Track_Striped_Esse_Double.obj-fc7bb7197c307d1243453401d4ff40e4.mesh"]
+
+source_file="res://assets/RaceTrackKit/Track_Striped_Esse_Double.obj"
+dest_files=["res://.godot/imported/Track_Striped_Esse_Double.obj-fc7bb7197c307d1243453401d4ff40e4.mesh", "res://.godot/imported/Track_Striped_Esse_Double.obj-fc7bb7197c307d1243453401d4ff40e4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
