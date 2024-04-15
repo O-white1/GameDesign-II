@@ -20,24 +20,25 @@ tonemap_mode = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_7lclj"]
 
 [node name="rc_world" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.922982, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bjyyv")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.601642, -1.56418, 0.124391)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0.297856, -2.67943, -1.98027)
 use_collision = true
 mesh = SubResource("PlaneMesh_7lclj")
 
 [node name="race" parent="." instance=ExtResource("1_7rcht")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659342, 0, 1.02952)
+transform = Transform3D(1.578, 0, 0, 0, 4.348, 0, 0, 0, 1, 0.659342, 0, 1.02952)
 
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, -1.55253, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -2.04127, -3.55024, 10.8853)
 mesh_library = ExtResource("2_ymfce")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(65533, 65532, 137, 131067, 65529, 1441977, 131069, 65528, 655555, 65536, 65529, 655557, 65537, 65529, 655557, 65538, 65529, 721034, 65539, 65529, 655563, 65540, 65529, 655498)
+"cells": PackedInt32Array(65533, 65532, 137, 131067, 65529, 1441977, 131069, 65528, 655555, 65536, 65529, 655557, 65540, 65529, 655498, 65539, 65528, 197, 65538, 65528, 197, 65537, 65528, 197, 196616, 65533, 1441989, 196616, 65534, 1441989, 196615, 65535, 1048738, 327687, 5, 1048714, 393219, 8, 148, 393218, 8, 148, 393217, 8, 148, 458752, 8, 137, 589822, 5, 1441929, 589825, 3, 655497, 589827, 6, 1048713, 589824, 9, 137)
 }
-metadata/_editor_floor_ = Vector3(0, 1, 0)
+metadata/_editor_floor_ = Vector3(0, 5, 0)

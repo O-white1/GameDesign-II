@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://csqjwn2c3qep5"]
+
+[ext_resource type="MeshLibrary" uid="uid://jdgfduyfgflp" path="res://assets/Meshies/RoadTiles.tres" id="1_oagpo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_emrn6"]
+sky_top_color = Color(0.607843, 0.729412, 0.847059, 1)
+sky_horizon_color = Color(0.651961, 0.682353, 0.711765, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.651961, 0.682353, 0.711765, 1)
+
+[sub_resource type="Sky" id="Sky_xlur7"]
+sky_material = SubResource("ProceduralSkyMaterial_emrn6")
+
+[sub_resource type="Environment" id="Environment_rib0n"]
+background_mode = 2
+sky = SubResource("Sky_xlur7")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uxeca"]
+
+[node name="RC_world2" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 6.6518, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rib0n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.019194, 0.499635, 0, 0.999263, 0.0383878, -0.500003, 0.0332447, -0.865385, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_uxeca")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_oagpo")
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(1, 65534, 1441957, 196607, 65534, 1048741, 196607, 65533, 1048741, 196607, 65535, 1048741)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)

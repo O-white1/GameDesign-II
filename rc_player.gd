@@ -18,7 +18,7 @@ func calc_engine_force(accel, rpm):
 
 func _physics_process(delta):
 	steering = lerp(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 5)
-	var accel = Input.get_axis("ui_up", "ui_down") * HORSE_POWER
+	var accel = Input.get_axis("ui_down", "ui_up") * HORSE_POWER
 	$backLeft.engine_force = calc_engine_force(accel, abs($backLeft.get_rpm()))
 	$backRight.engine_force = calc_engine_force(accel, abs($backRight.get_rpm()))
 	

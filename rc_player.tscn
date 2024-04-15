@@ -208,7 +208,7 @@ mass = 80.0
 script = ExtResource("1_3sv23")
 
 [node name="body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34997e-13, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 2.35136, 0, 0, 0, 1, 1.34997e-13, 0.1, 0)
 mesh = SubResource("ArrayMesh_4cea5")
 skeleton = NodePath("")
 
@@ -217,12 +217,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34997e-13, 0.1, 0)
 shape = SubResource("ConvexPolygonShape3D_2v4lj")
 
 [node name="CenterMass" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.261443, 0)
+transform = Transform3D(1, 0, 0, 0, 1.98568, 0, 0, 0, 1.52133, 0, 0.261443, 0)
 top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CenterMass"]
-transform = Transform3D(1, 0, 0, 0, 0.97237, 0.233445, 0, -0.233445, 0.97237, 0, 1.6, 4)
+transform = Transform3D(-1, 0, 0, 0, 0.983677, 0.179944, 0, -0.23616, 1.29098, 0, 1.6, 4)
 current = true
+fov = 72.1571
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 2
