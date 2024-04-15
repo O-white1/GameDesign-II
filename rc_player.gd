@@ -1,6 +1,6 @@
 extends VehicleBody3D
 
-const MAX_STEER = 0.4
+const MAX_STEER = 0.25
 const MAX_RPM = 300
 const MAX_TORQUE = 200
 const HORSE_POWER = 100
@@ -28,6 +28,8 @@ func _physics_process(delta):
 	$CenterMass.global_position = $CenterMass.global_position.lerp(self.global_position, delta*20.0)
 	$CenterMass.transform = $CenterMass.transform.interpolate_with(self.transform, delta*5.0)
 	$CenterMass/Camera3D.look_at(self.global_position.lerp(self.global_position + self.linear_velocity, delta*5.0))
+	var laps = 0
+	
 	check_and_right_vehicle()
 	
 func check_and_right_vehicle():
