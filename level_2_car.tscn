@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckdpchc53465r"]
+
+[ext_resource type="PackedScene" uid="uid://cqbc15dvuabk0" path="res://rc_player.tscn" id="1_mpwjx"]
+[ext_resource type="MeshLibrary" uid="uid://b1bpjxmjvugr8" path="res://Road.tres" id="2_g1jui"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i6blf"]
+sky_top_color = Color(0, 0.517647, 0.866667, 1)
+sky_horizon_color = Color(0.5, 0.629412, 0.716667, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.629412, 0.716667, 1)
+
+[sub_resource type="Sky" id="Sky_cktow"]
+sky_material = SubResource("ProceduralSkyMaterial_i6blf")
+
+[sub_resource type="Environment" id="Environment_hngpm"]
+background_mode = 2
+sky = SubResource("Sky_cktow")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_61njg"]
+
+[node name="Level2Car" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.109611)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hngpm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.019194, 0.499635, 0, 0.999263, 0.0383878, -0.500003, 0.0332447, -0.865385, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(150, 0, 0, 0, 150, 0, 0, 0, 150, 0, 1.06081, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_61njg")
+
+[node name="race" parent="." instance=ExtResource("1_mpwjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0329244, 1.17542, -7.37346)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh_library = ExtResource("2_g1jui")
+cell_size = Vector3(1, 1, 1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(23, 65459, 1441933, 0, 65532, 1441933, 393226, 65524, 655501, 720913, 65534, 1048724, 786449, 0, 1048724, 917521, 1, 1048734, 1310737, 17, 1048743, 1310731, 21, 167, 1310727, 15, 1441966, 1310729, 10, 1441972, 1441801, 5, 1441972)
+}
+metadata/_editor_floor_ = Vector3(0, 22, 0)

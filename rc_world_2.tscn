@@ -33,7 +33,6 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0.143134, 0)
 mesh = SubResource("PlaneMesh_uxeca")
 
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh_library = ExtResource("1_oagpo")
 cell_center_y = false
 data = {
