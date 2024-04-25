@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b06e2gg0qabo8"]
+[gd_scene load_steps=9 format=3 uid="uid://b06e2gg0qabo8"]
 
 [ext_resource type="PackedScene" uid="uid://cqbc15dvuabk0" path="res://rc_player.tscn" id="1_7rcht"]
 [ext_resource type="MeshLibrary" uid="uid://jdgfduyfgflp" path="res://assets/Meshies/RoadTiles.tres" id="2_ymfce"]
+[ext_resource type="PackedScene" uid="uid://cqbsoirxb8oxb" path="res://rc_enemy.tscn" id="3_lsnfx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rab4h"]
 sky_top_color = Color(0.592157, 0, 0.109804, 1)
@@ -52,3 +53,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28738, 5.13467, 9.9648)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Lapper"]
 mesh = SubResource("CylinderMesh_j6r0l")
+
+[node name="race2" parent="." instance=ExtResource("3_lsnfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72532, -2.76261, -2.03953)
+
+[node name="race3" parent="." instance=ExtResource("3_lsnfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63206, -2.76261, 1.31166)
