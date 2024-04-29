@@ -251,39 +251,39 @@ text = "0 mph
 label_settings = SubResource("LabelSettings_8edqo")
 
 [node name="backLeft" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-0.6, 0, 5.24537e-08, 0, 0.6, 0, -5.24537e-08, 0, -0.6, -0.610438, 0.289714, 0.890789)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -1.65304, -0.0213767, 1.71187)
 use_as_traction = true
 wheel_friction_slip = 9.5
 
 [node name="wheel_backLeft" type="MeshInstance3D" parent="backLeft"]
-transform = Transform3D(1.66667, 0, 0, 0, 1.66667, 0, 0, 0, 1.66667, -0.434064, 0.0171433, 0.0177923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37976, 0.389429, 0.951814)
 mesh = SubResource("ArrayMesh_5mnsi")
 skeleton = NodePath("")
 
 [node name="backRight" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-0.6, 0, 5.24537e-08, 0, 0.6, 0, -5.24537e-08, 0, -0.6, 0.587793, 0.304648, 0.87957)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1.45355, -0.0347127, 1.83674)
 use_as_traction = true
 wheel_friction_slip = 9.5
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="backRight"]
-transform = Transform3D(-1.66667, 0, -1.45705e-07, 0, 1.66667, 0, 1.45705e-07, 0, -1.66667, 0.396321, -0.00774625, -0.000907063)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 1.17437, 0.454071, 0.96636)
 mesh = SubResource("ArrayMesh_5mnsi")
 skeleton = NodePath("")
 
 [node name="frontLeft" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-0.6, 0, 5.24537e-08, 0, 0.6, 0, -5.24537e-08, 0, -0.6, -0.610438, 0.287551, -0.635552)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -1.50353, 0.216029, -1.08212)
 use_as_steering = true
 
 [node name="wheel_frontLeft" type="MeshInstance3D" parent="frontLeft"]
-transform = Transform3D(1.66667, 0, 0, 0, 1.66667, 0, 0, 0, 1.66667, -0.434064, 0.0207487, 0.00722456)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.33949, 0.257381, -0.631181)
 mesh = SubResource("ArrayMesh_5mnsi")
 skeleton = NodePath("")
 
 [node name="frontRight" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-0.6, 0, 5.24537e-08, 0, 0.6, 0, -5.24537e-08, 0, -0.6, 0.587793, 0.312559, -0.641678)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1.38206, 0.362541, -0.953832)
 use_as_steering = true
 
 [node name="wheel_frontRight" type="MeshInstance3D" parent="frontRight"]
-transform = Transform3D(-1.66667, 0, -1.45705e-07, 0, 1.66667, 0, 1.45705e-07, 0, -1.66667, 0.396321, -0.0209315, -0.00298691)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 1.24309, 0.058395, -0.416565)
 mesh = SubResource("ArrayMesh_5mnsi")
 skeleton = NodePath("")
