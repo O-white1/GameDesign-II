@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3 uid="uid://c36802ae8qno6"]
+
+[ext_resource type="Script" path="res://particale_demo.gd" id="1_r2vm4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8jq50"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_saog6"]
+sky_material = SubResource("ProceduralSkyMaterial_8jq50")
+
+[sub_resource type="Environment" id="Environment_rr4da"]
+background_mode = 2
+sky = SubResource("Sky_saog6")
+tonemap_mode = 2
+
+[sub_resource type="Curve" id="Curve_bfur3"]
+_data = [Vector2(0.00537634, 0), 0.0, 0.0, 0, 0, Vector2(0.876344, 0.169811), 0.0, 0.0, 0, 0, Vector2(1, 0.562264), 0.316082, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k0f0a"]
+curve = SubResource("Curve_bfur3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fb0qh"]
+spread = 180.0
+initial_velocity_max = 4.0
+angular_velocity_max = 360.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_k0f0a")
+color = Color(0.989844, 3.94672e-06, 7.70092e-07, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 7.1
+turbulence_noise_scale = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7udrn"]
+albedo_color = Color(0.168627, 0.686275, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1l7m"]
+material = SubResource("StandardMaterial3D_7udrn")
+
+[sub_resource type="Curve" id="Curve_quvjr"]
+min_value = 1.0
+max_value = 10.0
+_data = [Vector2(0, 0.803774), 0.0, 0.0, 0, 0, Vector2(0.303419, 0), 0.0, 0.0, 0, 0, Vector2(0.388889, 0), 0.0, 0.0, 0, 0, Vector2(0.448718, 0.471698), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0jbo"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_w56j3"]
+material = SubResource("StandardMaterial3D_q0jbo")
+radial_steps = 10
+sections = 7
+section_length = 0.15
+section_rings = 6
+curve = SubResource("Curve_quvjr")
+
+[sub_resource type="Skin" id="Skin_c17yk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lo5x"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="ParticaleDemo" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0176834)
+script = ExtResource("1_r2vm4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rr4da")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.891864, -0.196122, -0.407571, 0.253048, 0.530526, -0.809017, 0.374893, -0.824669, -0.423529, 0, 0, 0)
+cast_shadow = 2
+amount = 500
+lifetime = 0.3
+randomness = 1.0
+visibility_aabb = AABB(-4.01709, -4, -4, 8, 8, 8)
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_fb0qh")
+draw_passes = 2
+draw_pass_1 = SubResource("BoxMesh_s1l7m")
+draw_pass_2 = SubResource("TubeTrailMesh_w56j3")
+draw_skin = SubResource("Skin_c17yk")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+height = 0.035
+sides = 12
+material = SubResource("StandardMaterial3D_0lo5x")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24765, 3.38425)

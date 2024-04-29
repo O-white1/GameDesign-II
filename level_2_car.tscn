@@ -45,4 +45,6 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 5, 0)
 
 [node name="race" parent="." instance=ExtResource("1_mpwjx")]
-transform = Transform3D(15.2974, 25.8061, -0.183317, -25.8068, 15.297, -0.108664, 6.98492e-09, 0.213103, 29.9992, -3.56167, 1.75813, 7.32486)
+transform = Transform3D(0.509913, 0.860204, -0.00611056, -0.860226, 0.5099, -0.00362214, 0, 0.00710344, 0.999975, -3.56167, 1.75813, 7.32486)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
