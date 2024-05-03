@@ -12,5 +12,4 @@ func _process(delta):
 
 
 func _on_race_body_entered(body):
-	var lvl = preload("res://rc_world.tscn").instantiate()
-	get_tree().root.add_child(lvl)
+		get_tree().change_scene_to_file("res://rc_world.tscn")

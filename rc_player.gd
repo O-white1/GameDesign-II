@@ -33,6 +33,8 @@ func _physics_process(delta):
 	check_and_right_vehicle()
 	
 func check_and_right_vehicle():
+	if Input.is_action_just_pressed("Restart"):
+		get_tree().change_scene_to_file("res://level_2_car.tscn")
 	if self.global_transform.basis.y.dot(Vector3.UP) < 0:
 		var current_rotation = self.rotation_degrees
 		current_rotation.x = 0
@@ -40,3 +42,9 @@ func check_and_right_vehicle():
 		self.rotation_degrees = current_rotation
 		
 	
+
+
+"""
+func _on_finish_tree_entered():
+			get_tree().change_scene_to_file("res://rc_world.tscn")
+"""
