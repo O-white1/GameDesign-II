@@ -1,5 +1,4 @@
 extends VehicleBody3D
-
 const MAX_STEER = 0.25
 const MAX_RPM = 300
 const MAX_TORQUE = 200
@@ -8,14 +7,8 @@ const HORSE_POWER = 100
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
-
-
-
 func calc_engine_force(accel, rpm):
 	return accel * MAX_TORQUE * (1 - rpm / MAX_RPM)
-	
-
 func _physics_process(delta):
 	steering = lerp(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 5)
 	var accel = Input.get_axis("ui_down", "ui_up") * HORSE_POWER
@@ -40,11 +33,3 @@ func check_and_right_vehicle():
 		current_rotation.x = 0
 		current_rotation.z = 0
 		self.rotation_degrees = current_rotation
-		
-	
-
-
-"""
-func _on_finish_tree_entered():
-			get_tree().change_scene_to_file("res://rc_world.tscn")
-"""
